@@ -7,7 +7,7 @@ class OrderListComponent extends Component {
     render() {
         return (
             <>
-lorem
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci architecto deserunt ducimus eius eligendi est excepturi, fugiat illum maiores, minus molestias nulla obcaecati officia quos rem sapiente, tenetur unde.
             </>
         );
     }
