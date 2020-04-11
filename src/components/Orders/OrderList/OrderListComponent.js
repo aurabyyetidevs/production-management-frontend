@@ -5,8 +5,10 @@ class OrderListComponent extends Component {
 
 
     render() {
-        return (<></>
-
+        return (
+            <>
+lorem
+            </>
         );
     }
 }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import OrderListComponent from "./OrderList/OrderListComponent";
 
-class OrderListContainder extends Component {
+class OrderListContainer extends Component {
 
     render() {
         return (
@@ -11,6 +11,6 @@ class OrderListContainder extends Component {
     }
 }
 
-OrderListContainder.propTypes = {};
+OrderListContainer.propTypes = {};
 
-export default OrderListContainder;
+export default OrderListContainer;
