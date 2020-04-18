@@ -1,23 +1,22 @@
 /* eslint-disable no-unused-vars */
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import {makeStyles} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import {
-    AppBar,
-    Toolbar,
-    colors,
+  AppBar,
+  Toolbar,
+  colors,
 } from '@material-ui/core';
+import {Hidden} from "@material-ui/core/es/index";
 
 const useStyles = makeStyles(theme => ({
     root: {
-        boxShadow: 'none',
-        border: '1px solid red'
+        boxShadow: 'none'
     },
     logoContainer: {
-        width: '15%'
+        width: 230
     },
     logo: {
         padding: 5,
@@ -30,33 +29,32 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const TopBar = props => {
-    const {className, ...rest} = props;
+    const { className, ...rest } = props;
 
-    const classes = useStyles();
+  const classes = useStyles();
 
-    useEffect(() => {
-    });
+  useEffect(() => {});
 
-    return (
-        <AppBar
-            {...rest}
-            className={className}
-        >
-            <Toolbar>
+  return (
+    <AppBar
+        {...rest}
+        className={className}
+    >
+        <Toolbar>
+            <Hidden mdDown>
                 <div className={classes.logoContainer}>
-                    <img className={classes.logoSign} src="/images/aura-logo-v2.png" alt="logo"/>
-                    <img className={classes.logo} src="/images/aura-v2.png" alt="logo"/>
+                        <img className={classes.logoSign} src="/images/aura-logo-v2.png" alt="logo" />
+                        <img className={classes.logo} src="/images/aura-v2.png" alt="logo" />
                 </div>
-                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                    <MenuIcon style={{color: 'white'}} fontSize="large"/>
-                </IconButton>
-            </Toolbar>
-        </AppBar>
-    );
+            </Hidden>
+            <MenuIcon style={{ color: 'white' }} fontSize="large"  />
+        </Toolbar>
+    </AppBar>
+  );
 };
 
 TopBar.propTypes = {
-    className: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default TopBar;

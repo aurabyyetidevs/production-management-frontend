@@ -1,10 +1,10 @@
 import React, { Suspense, useState } from 'react';
-// import { renderRoutes } from 'react-router-config';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { LinearProgress } from '@material-ui/core';
 import NavBar from './NavBar';
 import TopBar from "./TopBar";
+import {renderRoutes} from "react-router-config";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
         flex: '0 0 auto'
     },
     content: {
+        margin:45,
         overflowY: 'auto',
         flex: '1 1 auto'
     }
@@ -38,9 +39,7 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = props => {
     const { route } = props;
-
     const classes = useStyles();
-
     return (
         <div className={classes.root}>
             <TopBar
@@ -51,9 +50,9 @@ const Dashboard = props => {
                     className={classes.navBar}
                 />
                 <main className={classes.content}>
-                    {/*<Suspense fallback={<LinearProgress />}>*/}
-                        {/*{renderRoutes(route.routes)}*/}
-                    {/*</Suspense>*/}
+                    <Suspense fallback={<LinearProgress />}>
+                        {renderRoutes(route.routes)}
+                    </Suspense>
                 </main>
             </div>
             {/*<ChatBar />*/}

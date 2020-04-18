@@ -51,16 +51,16 @@ export default [
             },
             {
                 title: 'Oferta',
-                href: '/catalogue',
+                href: '/catalog',
                 icon: ImportContactsSharp,
                 children: [
                     {
                         title: 'Produkty',
-                        href: '/catalogue/products'
+                        href: '/catalog/products'
                     },
                     {
                         title: 'Materiały',
-                        href: '/catalogue/materials'
+                        href: '/catalog/materials'
                     }
                 ]
             },
@@ -71,7 +71,7 @@ export default [
             },
             {
                 title: 'Zestawienia',
-                href: '/analysis',
+                href: '/reports',
                 icon: TrendingUpSharp
             },
         ]
