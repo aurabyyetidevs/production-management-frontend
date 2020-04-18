@@ -12,16 +12,20 @@ import useRouter from "../../../utils/useRouter";
 const useStyles = makeStyles(theme => ({
     root: {
         height: '100%',
-        overflowY: 'auto'
+        overflowY: 'auto',
+        fontFamily: 'Nunito'
     },
     content: {
         padding: theme.spacing(2)
     },
     profile: {
         display: 'flex',
+        padding:'10px',
         flexDirection: 'column',
         alignItems: 'center',
-        minHeight: 'fit-content'
+        minHeight: 'fit-content',
+        backgroundColor: 'rgba( 255, 255, 255, 0.05)',
+        borderRadius: '12px'
     },
     avatar: {
         width: 80,
@@ -36,6 +40,7 @@ const useStyles = makeStyles(theme => ({
     navigation: {
         marginTop: theme.spacing(2)
     }
+
 }));
 
 const NavBar = props => {
