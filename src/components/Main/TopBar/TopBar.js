@@ -9,13 +9,14 @@ import {
   Toolbar,
   colors,
 } from '@material-ui/core';
+import {Hidden} from "@material-ui/core/es/index";
 
 const useStyles = makeStyles(theme => ({
     root: {
         boxShadow: 'none'
     },
     logoContainer: {
-        width: '15%'
+        width: 230
     },
     logo: {
         padding: 5,
@@ -40,10 +41,12 @@ const TopBar = props => {
         className={className}
     >
         <Toolbar>
-            <div className={classes.logoContainer}>
-                    <img className={classes.logoSign} src="/images/aura-logo-v2.png" alt="logo" />
-                    <img className={classes.logo} src="/images/aura-v2.png" alt="logo" />
-            </div>
+            <Hidden mdDown>
+                <div className={classes.logoContainer}>
+                        <img className={classes.logoSign} src="/images/aura-logo-v2.png" alt="logo" />
+                        <img className={classes.logo} src="/images/aura-v2.png" alt="logo" />
+                </div>
+            </Hidden>
             <MenuIcon style={{ color: 'white' }} fontSize="large"  />
         </Toolbar>
     </AppBar>

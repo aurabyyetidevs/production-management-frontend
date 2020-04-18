@@ -31,15 +31,15 @@ const useStyles = makeStyles(theme => ({
         flex: '0 0 auto'
     },
     content: {
+        margin:45,
         overflowY: 'auto',
         flex: '1 1 auto'
     }
 }));
 
 const Dashboard = props => {
-    const { routes } = props;
+    const { route } = props;
     const classes = useStyles();
-
     return (
         <div className={classes.root}>
             <TopBar
@@ -51,7 +51,7 @@ const Dashboard = props => {
                 />
                 <main className={classes.content}>
                     <Suspense fallback={<LinearProgress />}>
-                        {renderRoutes(routes)}
+                        {renderRoutes(route.routes)}
                     </Suspense>
                 </main>
             </div>

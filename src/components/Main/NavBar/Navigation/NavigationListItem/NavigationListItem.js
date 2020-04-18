@@ -138,7 +138,7 @@ const NavigationListItem = props => {
         disableGutters
       >
         <Button
-          activeClassName={classes.active}
+          // activeClassName={classes.active}
           className={clsx(classes.buttonLeaf, `depth-${depth}`)}
           // component={CustomRouterLink}
           // exact
