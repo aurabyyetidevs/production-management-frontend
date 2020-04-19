@@ -33,6 +33,15 @@ const useStyles = makeStyles({
     table: {
         minWidth: 700,
     },
+    root:{
+        // height: '100%',
+        // width: '100%',
+        // position: 'relative',
+        // flexDirection: 'column',//TODO::zrobic overflow hidden
+        // overflow: 'hidden',
+        // overflowY: 'auto',
+        // flex: '1 1 auto'
+    },
     badge: {
         left:20,
         width:50,
@@ -69,8 +78,8 @@ const OrderListComponent = () => {
         return (
             <>
                 <OrderListSearchComponent/>
-                <TableContainer component={Paper}>
-                    <Table className={classes.table} aria-label="customized table">
+                <TableContainer  component={Paper}>
+                    <Table stickyHeader={true} className={classes.table} aria-label="customized table">
                         <TableHead>
                             <TableRow>
                                 <StyledTableCell style={{width:'2%'}}>Lp.</StyledTableCell>
@@ -82,7 +91,7 @@ const OrderListComponent = () => {
                                 <StyledTableCell align="left"></StyledTableCell>
                             </TableRow>
                         </TableHead>
-                        <TableBody>
+                        <TableBody classes={{root:classes.root}}>
                             {rows.map((row) => (
                                 <StyledTableRow key={row.name} className={classes.tableRow}>
                                     <StyledTableCell align="left">{row.lp}</StyledTableCell>

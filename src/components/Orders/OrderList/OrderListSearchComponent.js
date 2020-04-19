@@ -6,10 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ClearIcon from '@material-ui/icons/Clear';
 import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
-
-// import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-// import 'date-fns';
-// import DateFnsUtils from '@date-io/date-fns';
+import { KeyboardDatePicker } from '@material-ui/pickers';
 
 
 const useStyles = makeStyles({
@@ -21,12 +18,19 @@ const useStyles = makeStyles({
     },
     iconButton: {
         verticalAlign: 'bottom'
+    },
+    datePicker: {
+        marginTop: 10
+    },
+    iconWrapper:{
+        width: "100%",
+        textAlign:"right"
     }
 });
 
 const orderTypes = [
     {
-        value: undefined,
+        value: null,
         label: 'wszystkie',
     },
     {
@@ -41,7 +45,7 @@ const orderTypes = [
 
 const statuses = [
     {
-        value: undefined,
+        value: null,
         label: 'wszystkie',
     },
     {
@@ -69,33 +73,49 @@ const StyledTextField = withStyles((theme) => ({
 const OrderListSearchComponent = () => {
     const classes = useStyles();
 
-    // const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-    //
-    // const handleDateChange = (date) => {
-    //     setSelectedDate(date);
-    // };
+    const [orderType, setOrderType] = React.useState();
+    const [status, setStatus] = React.useState();
+    const [selectedDate, setSelectedDate] = React.useState();
+    const [purchaser, setPurchaser] = React.useState();
+    const [orderNumber, setOrderNumber] = React.useState();
 
-
-    const [orderType, setOrderType, status, setStatus] = React.useState();
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
 
     const handleChange = (event) => {
         switch(event.target.id){
-            case 'type':
+            case 'orderType':
                 setOrderType(event.target.value);
+                break;
             case 'status':
-                setStatus(event.target.value)
+                setStatus(event.target.value);
+                break;
+            case 'orderNumber':
+                setOrderNumber(event.target.value);
+                break;
+            case 'purchaser':
+                setPurchaser(event.target.value);
+                break;
         }
+    };
+
+    const clearSearchParams = () => {
+        setSelectedDate(null);
+        setOrderType(null);
+        setStatus(null);
+        setOrderNumber("");
+        setPurchaser("");
     };
 
     return (
         <>
-        {/*<MuiPickersUtilsProvider utils={DateFnsUtils}>*/}
         <Card className={classes.root}>
             <form noValidate autoComplete="off">
-                <StyledTextField id="orderNumber" label="Numer zamówienia" color={'primary'}/>
-                <StyledTextField id="orderer" label="Zamawiający" color={'primary'}/>
+                <StyledTextField id="orderNumber" onChange={handleChange} value={orderNumber} label="Numer zamówienia" color={'primary'}/>
+                <StyledTextField id="purchaser" onChange={handleChange} value={purchaser} label="Zamawiający" color={'primary'}/>
                 <StyledTextField
-                    id="type"
+                    id="orderType"
                     select
                     label="Typ"
                     value={orderType}
@@ -121,42 +141,28 @@ const OrderListSearchComponent = () => {
                     ))}
                 </StyledTextField>
 
-                <IconButton classes={classes.iconButton} aria-label="delete">
-                    <ClearIcon />
-                </IconButton>
-                <IconButton color={'primary'} aria-label="delete">
-                    <SearchIcon />
-                </IconButton>
+                <KeyboardDatePicker
+                    className={classes.datePicker}
+                    margin="normal"
+                    id="orderDate"
+                    label="Data zamówienia"
+                    format="MM/dd/yyyy"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    KeyboardButtonProps={{'aria-label': 'change date',}}
+                />
 
-                {/*<Button*/}
-                    {/*color={'primary'}*/}
-                    {/*variant="contained"*/}
-                    {/*startIcon={<DeleteIcon />}*/}
-                    {/*size="medium"*/}
-                    {/*className={classes.margin}>*/}
-                    {/*Wyczyść*/}
-                {/*</Button>*/}
-                {/*<Button*/}
-                    {/*color={'primary'}*/}
-                    {/*variant="contained"*/}
-                    {/*startIcon={<FilterListIcon />}*/}
-                    {/*size="medium"*/}
-                    {/*className={classes.margin}>*/}
-                    {/*Filtruj*/}
-                {/*</Button>*/}
+                <span className={classes.iconWrapper}>
+                    <IconButton className={classes.iconButton} aria-label="delete">
+                        <ClearIcon onClick={clearSearchParams}/>
+                    </IconButton>
+                    <IconButton className={classes.iconButton} color={'primary'} aria-label="delete">
+                        <SearchIcon />
+                    </IconButton>
+                </span>
 
-
-                {/*<KeyboardDatePicker*/}
-                    {/*margin="normal"*/}
-                    {/*id="date-picker-dialog"*/}
-                    {/*label="Data zamówienia"*/}
-                    {/*format="MM/dd/yyyy"*/}
-                    {/*value={selectedDate}*/}
-                    {/*onChange={handleDateChange}*/}
-                    {/*KeyboardButtonProps={{'aria-label': 'change date',>*/}
             </form>
         </Card>
-        {/*</MuiPickersUtilsProvider>*/}
         </>
     );
 };
