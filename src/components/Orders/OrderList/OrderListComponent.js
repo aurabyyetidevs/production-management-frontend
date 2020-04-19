@@ -7,10 +7,12 @@ import OrderListSearchComponent from './OrderListSearchComponent';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
+        width:"15%",
         backgroundColor: theme.palette.common.black,
         color: theme.palette.common.white,
     },
     body: {
+        width:"15%",
         padding:8,
         paddingLeft:15,
         color: theme.palette.common.black,
@@ -84,7 +86,7 @@ const OrderListComponent = () => {
                             <TableRow>
                                 <StyledTableCell style={{width:'2%'}}>Lp.</StyledTableCell>
                                 <StyledTableCell align="left">Nr zamówienia</StyledTableCell>
-                                <StyledTableCell align="left">Zamawiający</StyledTableCell>
+                                <StyledTableCell style={{width:'20%'}} align="left">Zamawiający</StyledTableCell>
                                 <StyledTableCell align="left">Status</StyledTableCell>
                                 <StyledTableCell align="left">Data zamówienia</StyledTableCell>
                                 <StyledTableCell align="left">Termin realizacji</StyledTableCell>
@@ -97,14 +99,14 @@ const OrderListComponent = () => {
                     <TableBody classes={{root:classes.root}}>
                             {rows.map((row) => (
                                 <StyledTableRow key={row.name} className={classes.tableRow}>
-                                    <StyledTableCell style={{width:'2%'}} align="left">{row.lp}</StyledTableCell>
+                                    <StyledTableCell style={{width:'4%'}} align="left">{row.lp}</StyledTableCell>
                                     <StyledTableCell align="left">{row.orderNumber}</StyledTableCell>
-                                    <StyledTableCell align="left">{row.orderer}
+                                    <StyledTableCell style={{width:'20%'}} align="left">{row.orderer}
                                     <Badge variant="circle" classes={{badge: classes.badge}} badgeContent={getBadgeDescription(row.type)} invisible={row.type===''}/></StyledTableCell>
                                     <StyledTableCell align="left">{row.status}</StyledTableCell>
                                     <StyledTableCell align="left">{row.orderDate}</StyledTableCell>
                                     <StyledTableCell align="left">{row.ralizationDate}</StyledTableCell>
-                                    <StyledTableCell style={{paddingRight:15}} align="left"><DeleteSharp style={{ color: "#919191" }}/></StyledTableCell>
+                                    <StyledTableCell align="center"><DeleteSharp style={{ color: "#919191" }}/></StyledTableCell>
                                 </StyledTableRow>
                             ))}
                         </TableBody>
