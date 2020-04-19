@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
         flex: '0 0 auto'
     },
     content: {
-        margin:45,
+        margin: '2vw',
         overflowY: 'auto',
         flex: '1 1 auto'
     }

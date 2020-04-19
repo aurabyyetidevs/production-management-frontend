@@ -91,10 +91,13 @@ const OrderListComponent = () => {
                                 <StyledTableCell align="left"></StyledTableCell>
                             </TableRow>
                         </TableHead>
-                        <TableBody classes={{root:classes.root}}>
+                    </Table>
+                    <div style={{ overflow: 'auto', height: 350 }}>
+                    <Table stickyHeader={true} className={classes.tableBody} aria-label="customized table">
+                    <TableBody classes={{root:classes.root}}>
                             {rows.map((row) => (
                                 <StyledTableRow key={row.name} className={classes.tableRow}>
-                                    <StyledTableCell align="left">{row.lp}</StyledTableCell>
+                                    <StyledTableCell style={{width:'2%'}} align="left">{row.lp}</StyledTableCell>
                                     <StyledTableCell align="left">{row.orderNumber}</StyledTableCell>
                                     <StyledTableCell align="left">{row.orderer}
                                     <Badge variant="circle" classes={{badge: classes.badge}} badgeContent={getBadgeDescription(row.type)} invisible={row.type===''}/></StyledTableCell>
@@ -106,6 +109,7 @@ const OrderListComponent = () => {
                             ))}
                         </TableBody>
                     </Table>
+                    </div>
                     <PaginationComponent/>
                 </TableContainer>
             </>
