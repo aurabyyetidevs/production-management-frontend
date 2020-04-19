@@ -3,6 +3,7 @@ import {Table, TableBody, Badge, Paper, TableHead, TableCell, TableContainer, Ta
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import PaginationComponent from "../../Common/PaginationComponent";
 import DeleteSharp from '@material-ui/icons/DeleteSharp';
+import OrderListSearchComponent from './OrderListSearchComponent';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -67,6 +68,7 @@ const OrderListComponent = () => {
 
         return (
             <>
+                <OrderListSearchComponent/>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="customized table">
                         <TableHead>
