@@ -9,7 +9,7 @@ import SettingsSharp from '@material-ui/icons/SettingsSharp';
 import ImportContactsSharp from '@material-ui/icons/ImportContactsSharp';
 import RecentActorsSharp from '@material-ui/icons/RecentActorsSharp';
 import TrendingUpSharp from '@material-ui/icons/TrendingUpSharp';
-
+import {makeStyles} from "@material-ui/styles/index";
 
 export default [
     {
